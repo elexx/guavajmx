@@ -1,0 +1,15 @@
+group 'com.github.elexx'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'maven'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:11.0'
+}
