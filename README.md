@@ -1,5 +1,7 @@
 # GuavaJmx
 
+[![Build Status](https://travis-ci.org/elexx/guavajmx.svg?branch=master)](https://travis-ci.org/elexx/guavajmx)
+
 Get insight in Guava via JMX.
 
 ## Building
