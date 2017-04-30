@@ -12,4 +12,13 @@ repositories {
 
 dependencies {
     compile 'com.google.guava:guava:11.0'
+    testCompile 'org.assertj:assertj-core:3.6.2'
+    testCompile 'org.testng:testng:6.10'
+}
+
+test {
+    useTestNG()
+    testLogging {
+        exceptionFormat = 'full'
+    }
 }

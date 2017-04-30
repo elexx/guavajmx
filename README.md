@@ -40,7 +40,7 @@ dependencies {
 
 ### Cache
 
-When building the Cache, don't forget to call `.recordStats()` otherwise the JMX bean will not show any statistics.
+When building the Cache with Guava >12.0, don't forget to call `.recordStats()` otherwise the JMX bean will not show any statistics.
 
 ```
 Cache<String, String> myCache = newBuilder()
