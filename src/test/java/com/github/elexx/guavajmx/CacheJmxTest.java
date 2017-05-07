@@ -13,7 +13,7 @@ import java.lang.management.ManagementFactory;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class GuavaJmxManagementServiceTest {
+public class CacheJmxTest {
 
     private MBeanServer mBeanServer = ManagementFactory.getPlatformMBeanServer();
 
