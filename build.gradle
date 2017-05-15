@@ -1,13 +1,32 @@
-group 'com.github.elexx'
-version '0.0.1-SNAPSHOT'
-
-apply plugin: 'maven'
-apply plugin: 'java'
-
-sourceCompatibility = 1.8
+plugins {
+    id 'java'
+    id 'maven'
+    id 'com.github.hierynomus.license' version '0.14.0'
+}
 
 repositories {
     jcenter()
+}
+
+group 'com.github.elexx'
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+defaultTasks 'build'
+
+license {
+    header rootProject.file("gradle/check/license-header.txt")
+
+    strictCheck true
+    ignoreFailures false
+
+    mapping {
+        java = 'SLASHSTAR_STYLE'
+    }
+
+    ext.year = java.time.Year.now().getValue()
 }
 
 dependencies {
