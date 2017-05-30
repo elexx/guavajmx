@@ -16,7 +16,7 @@
 package com.github.elexx.guavajmx.cache;
 
 /**
- * MBean interface for managing a guava {@link com.google.common.cache.Cache}.
+ * MBean interface for managing a Guava {@link com.google.common.cache.Cache}.
  */
 public interface CacheController {
 

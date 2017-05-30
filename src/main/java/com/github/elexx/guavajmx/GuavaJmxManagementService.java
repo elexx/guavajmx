@@ -31,7 +31,7 @@ import javax.management.StandardMBean;
 import java.lang.management.ManagementFactory;
 
 /**
- * Register Guava componentes with JMX.
+ * Register Guava components with JMX.
  */
 public class GuavaJmxManagementService {
 
