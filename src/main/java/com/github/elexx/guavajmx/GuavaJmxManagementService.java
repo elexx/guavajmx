@@ -17,7 +17,10 @@ package com.github.elexx.guavajmx;
 
 import com.github.elexx.guavajmx.cache.CacheController;
 import com.github.elexx.guavajmx.cache.GuavaCacheControllerImpl;
+import com.github.elexx.guavajmx.eventbus.EventBusController;
+import com.github.elexx.guavajmx.eventbus.EventBusControllerImpl;
 import com.google.common.cache.Cache;
+import com.google.common.eventbus.EventBus;
 
 import javax.management.InstanceAlreadyExistsException;
 import javax.management.MBeanRegistrationException;
@@ -42,6 +45,17 @@ public class GuavaJmxManagementService {
         try {
             StandardMBean mBean = new StandardMBean(new GuavaCacheControllerImpl(cache), CacheController.class);
             ManagementFactory.getPlatformMBeanServer().registerMBean(mBean, getJmxBeanName(Cache.class, cacheName));
+        } catch (NotCompliantMBeanException | MalformedObjectNameException | InstanceAlreadyExistsException | MBeanRegistrationException e) {
+            throw new JmxRegistrationException("Could not register cache with JMX", e);
+        }
+    }
+
+    public static void register(EventBus bus, String busName) throws JmxRegistrationException {
+        try {
+            EventBusControllerImpl eventBusController = new EventBusControllerImpl();
+            bus.register(eventBusController);
+            StandardMBean mBean = new StandardMBean(eventBusController, EventBusController.class);
+            ManagementFactory.getPlatformMBeanServer().registerMBean(mBean, getJmxBeanName(EventBus.class, busName));
         } catch (NotCompliantMBeanException | MalformedObjectNameException | InstanceAlreadyExistsException | MBeanRegistrationException e) {
             throw new JmxRegistrationException("Could not register cache with JMX", e);
         }
